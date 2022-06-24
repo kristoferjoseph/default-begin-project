@@ -1,0 +1,26 @@
+{
+  "name": "northstar",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "npx sandbox",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@architect/architect": "^10.3.3"
+  },
+  "dependencies": {
+    "@architect/plugin-bundles": "^3.0.0",
+    "@enhance/enhance-style-transform": "^0.0.1-alpha.1",
+    "@enhance/import-transform": "^4.0.0",
+    "@enhance/ssr": "^2.3.3",
+    "@enhance/store": "^1.0.0"
+  }
+}
