@@ -8,7 +8,7 @@ fingerprint true
 src .begin/shared
 
 @views
-src src
+src app
 
 @http
 /
