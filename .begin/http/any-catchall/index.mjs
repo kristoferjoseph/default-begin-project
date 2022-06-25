@@ -1,11 +1,26 @@
 import arc from '@architect/functions'
-import render from '@architect/views/render.mjs'
 import Head from '@architect/views/head.mjs'
+import elements from '@architect/views/elements.mjs'
+import enhance from '@enhance/ssr'
+import importTransform from '@enhance/import-transform'
+import styleTransform from '@enhance/enhance-style-transform'
 
 export const handler = arc.http.async(Index)
+
 async function Index(req) {
   const title = req.rawPath.split('/')[1] || 'index'
-  const html = render({})
+  const initialState = {}
+  const html = enhance({
+    elements,
+    initialState,
+    scriptTransforms: [
+      importTransform({ map: arc.static })
+    ],
+    styleTranstforms: [
+      styleTransform
+    ]
+  })
+
   return {
     statusCode: 200,
     headers: {
