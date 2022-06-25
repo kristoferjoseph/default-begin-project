@@ -11,9 +11,9 @@ src .begin/shared
 src app
 
 @http
-/
-  method get
-  src .begin/http/get-index
+/*
+  method any
+  src .begin/http/any-catchall
 
 @plugins
 architect/plugin-bundles
