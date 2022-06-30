@@ -1,5 +1,5 @@
-import Index from "./pages/page-index.mjs"
-import About from "./pages/page-about.mjs"
+import Index from "./pages/index.mjs"
+import About from "./pages/about.mjs"
 
 const elements = {
   'page-index': Index,

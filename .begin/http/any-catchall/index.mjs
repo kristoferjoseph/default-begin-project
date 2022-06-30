@@ -1,5 +1,4 @@
 import arc from '@architect/functions'
-import data from '@begin/data'
 import Head from '@architect/views/head.mjs'
 import elements from '@architect/views/elements.mjs'
 import enhance from '@enhance/ssr'
@@ -11,11 +10,9 @@ export const handler = arc.http.async(Index)
 async function Index(req) {
   const title = req.rawPath.split('/')[1] || 'index'
   let initialState = {}
+  /*
   try {
-    initialState = await data.get({
-      table: 'pages',
-      key: title
-    })
+    initialState = await
   }
   catch (err) {
     return {
@@ -23,6 +20,7 @@ async function Index(req) {
       error: err.message
     }
   }
+  */
 
   const html = enhance({
     elements,
@@ -42,7 +40,7 @@ async function Index(req) {
     },
     body: html`
 ${Head({ title })}
-<page-${title} yolo="wut"></page-${title}>
+<page-${title}></page-${title}>
     `
   }
 }
