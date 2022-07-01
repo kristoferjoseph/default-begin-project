@@ -5,7 +5,7 @@ dflt
 fingerprint true
 
 @shared
-src .begin/shared
+src api
 
 @views
 src app
