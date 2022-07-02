@@ -5,7 +5,7 @@ dflt
 fingerprint true
 
 @shared
-src .begin/shared
+src api
 
 @views
 src app
@@ -14,6 +14,10 @@ src app
 /*
   method any
   src .begin/http/any-catchall
+
+/
+  method get
+  src .begin/http/get-index
 
 @plugins
 architect/plugin-bundles

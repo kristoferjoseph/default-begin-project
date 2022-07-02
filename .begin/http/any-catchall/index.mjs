@@ -9,10 +9,8 @@ export const handler = arc.http.async(Index)
 
 async function Index(req) {
   const title = req.rawPath.split('/')[1] || 'index'
-  const initialState = {}
   const html = enhance({
     elements,
-    initialState,
     scriptTransforms: [
       importTransform({ map: arc.static })
     ],
@@ -21,14 +19,30 @@ async function Index(req) {
     ]
   })
 
-  return {
-    statusCode: 200,
-    headers: {
-      'content-type': 'text/html; charset=utf8'
-    },
-    body: html`
+  try {
+    const body = html`
 ${Head({ title })}
 <page-${title}></page-${title}>
-    `
+      `
+    return {
+      statusCode: 200,
+      headers: {
+        'content-type': 'text/html; charset=utf8'
+      },
+      body
+    }
+
+  }
+  catch(err) {
+    return {
+      statusCode: 200,
+      headers: {
+        'content-type': 'text/html; charset=utf8'
+      },
+      body: html`
+${Head({ title: '404' })}
+<page-404 error="${err}"></page-404>
+      `
+    }
   }
 }
